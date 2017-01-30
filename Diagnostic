@@ -7,13 +7,13 @@ What’s are the similarities and differences between BigNum and FixNum?
     they are both integers
     BigNum is at least 19 digits
 What will 4.0 / 2 return? 
-    "2.0"
+    2.0
 What will 1.5.to_i.to_f return? 
-    "1.0"
+    1.0
 What part of this expression ("hi" * 5?) is “syntactic sugar”? What does that mean? 
     syntactic sugar is syntax designed to make things easier to read 
 What will 10 % 3 return?
-    "1"
+    "1" #returns remainder
 What will 5 == 10/2 return? 
     true
 How can you write 5 to the 2nd power? 
@@ -23,9 +23,11 @@ Strings
 
 How can you grab the substring “ell” from “hello”? 
      "hello".delete("h")
+     "hello" [-5..-2]
+     "hello" [1...4]
 Give an example of string concatenation and string interpolation. 
     concatenation  is "hello" + "world" 
-    interpolation is #{hello}
+    interpolation is "#{h}ello"
 Give examples of three variable names: a “valid name” (it will work) that goes against Ruby style, an “invalid” name (it will trigger an error), and a valid and stylistically conventional name.
     1. "helloWorld"
     2. "7_days"
@@ -34,7 +36,8 @@ Give examples of three variable names: a “valid name” (it will work) that go
 Arrays
 
 How do you add to an array? 
-    array_name.push()
+    array_name.push(3)
+    array_name.unshift(4)
 What will [1,2,3].shuffle do? 
     Will shuffle elements inside the array
 What do shift and unshift do? 
@@ -43,7 +46,7 @@ What do shift and unshift do?
 Name 3 ways to retrieve 4 from this array: [4,3,5] 
     1. array_name.unshift
     2. array_name.delete_at()
-    3. array = array_name[0]
+    3. array_name.shift
 How would you print each word from this list (["hello", "goodbye", "cactus"]) to terminal within this output:
     arrray_name = ["hello", "goodbye", "cactus"]
     array_name.each {|word| puts "The word is: #{word}."
@@ -54,19 +57,20 @@ What’s the difference between a while and until loop?
     while - will perform the block inside it while conditions are true. And stops when it false
     Until - if conditions are true it will perform the block inside it until conditions are false. 
 How do you escape a pry in the middle of a loop? 
-    CTR C or CTR D
+    exit 
     
 Enumerables (.each)  
 
 What is the purpose of an enumerable? 
-    To take each element from the inside Array and do smth 
+    To take each element from the inside Array and do smth
 What are the two different ways that you can represent a block?
     1. do ||
         end
     2. {|| }
 Given this array ["Beth", "Lauren", "Ilana"]. How would you create a new array of just the first initials of each name?
-    array_name.each do |name|
-    first_nitials = name(0)
+    ["Beth", "Lauren", "Ilana"].map {|name| name[0]}
+    #array_name.each do |name|
+    #first_nitials = name(0)
     end
 
 Classes and instance methods
@@ -75,16 +79,16 @@ When you’re defining a class, how do you store attributes?
     class className #defining a class
     variable_name = className.new("hot", 100) #creating new instance variable of a class using method .new and storing attributes inside ()
 What is the difference between attr_readers, attr_writers, and attr_accessors? What do each do?
-    attr_reader #shortcut to creeat a method and list all methods
-    attr_writers #you can only write method
-    attr_accessors #you can read and write method
+    attr_reader # methods replaces getter method 
+    attr_writers # replaces settor method
+    attr_accessors #does both 
 What method corresponds with .new when you create a new instance of a class?
     initialize
 
 Methods, arguments and scopes
 
 Describe the scope that methods create. Are variables created in that scope accessible elsewhere?
-    if method is a part of the global scope. Methods creats its own local scope.
+    if method is a part of the global scope. Methods creats its own local variables.
     Variables created in method scope are accesiible to global scope by calling its method. And eccessible only as a method.
 What does the method scope have access to?
-    Method can call variable from global scope or another method
+    Method have access to variable from global scope and another method
